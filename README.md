@@ -1,2 +1,2 @@
 # Taret450
-These questions are done to improve My Coding skills and codechef skills
+These questions are done to improve My Coding skills for placements in google amazon;
