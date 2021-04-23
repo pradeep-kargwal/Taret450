@@ -1,0 +1,25 @@
+vector<int> factorial(int N){
+        if(N==0)
+        {
+            vector<int> base = {1};
+            return base;
+        }
+        vector<int> faith = factorial(N-1);//let suppose that the recursion will return an vector of N-1 integer number
+        long long size = faith.size()-1,carry = 0;
+        while(size >0)
+        {
+            int num  = faith[size]*N+carry; //by this we are multiplying the last number of returned vector to the carry
+            faith[size] = num%10;           // we are simply multiplying by indian methods=>in this line we are inserting the last digit of above calculated number
+            carry = num/10;
+            size--;
+        }
+        int temp = (N*faith[0]+carry);
+        faith[0] = temp%10; //geting only single digit=>to inter in the first postion of vector          
+        temp = temp/10;
+        while(temp>0)//after inserting the whole elements into the first position ..we are remaing first digits one by one
+        {
+            faith.insert(faith.begin(),temp%10);
+            temp = temp/10;
+        }
+        return faith;
+    }
